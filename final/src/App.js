@@ -1,6 +1,12 @@
-import Route_pages from "./route_pages";
+import Navbar from "./components/navbar/NavBar";
+import RoutePages from "./route_pages";
 
 function App() {
-  <Route_pages />;
+  return (
+    <div className="App">
+      <RoutePages />
+      <Navbar />
+    </div>
+  );
 }
 export default App;

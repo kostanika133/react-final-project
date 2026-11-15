@@ -1,12 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import every_page from "./config/every_page";
-function Route_pages() {
+
+function RoutePages() {
   return (
     <Routes>
-      {every_page.map((e) => {
-        return <Route path={e.path} Component={e.component} />;
-      })}
+      {every_page.map((e) => (
+        <Route key={e.path} path={e.path} element={<e.component />} />
+      ))}
     </Routes>
   );
 }
-export default Route_pages;
+
+export default RoutePages;
