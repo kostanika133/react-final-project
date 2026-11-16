@@ -12,7 +12,7 @@ async function auth(user) {
   if (response.ok) {
     return data;
   }
-  throw new Error(data);
+  throw new Error(data.msg);
 }
 
 export default auth;
