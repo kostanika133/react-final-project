@@ -1,6 +1,5 @@
-async function auth(user) {
-  const register_url =
-    "https://academyofdigitalindustriesbackend.onrender.com/api/v1/auth/register";
+async function auth(user, param) {
+  const register_url = `https://academyofdigitalindustriesbackend.onrender.com/api/v1/auth/${param}`;
   const response = await fetch(register_url, {
     method: "POST",
     body: JSON.stringify(user),
@@ -8,7 +7,7 @@ async function auth(user) {
       "Content-Type": "application/json",
     },
   });
-  const data = await response.json;
+  const data = await response.json();
   if (response.ok) {
     return data;
   }

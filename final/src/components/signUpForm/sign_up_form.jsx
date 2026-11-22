@@ -1,43 +1,68 @@
 import { useState } from "react";
 import auth from "../../api/auth";
+import { useNavigate } from "react-router-dom";
+import paths from "../../constants/path";
+import authParams from "../../constants/authParam";
+
 function SignUpForm() {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     userName: "",
     email: "",
     password: "",
   });
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
   function userHandler(e) {
     const { name, value } = e.target;
     setUser((prev) => ({ ...prev, [name]: value }));
   }
+
   function submitHandler(e) {
     e.preventDefault();
+    setError("");
     setLoading(true);
-    auth(user).then().catch().finally(setLoading(false));
+
+    auth(user, authParams.signUp)
+      .then(() => {
+        navigate(paths.Sign_in, { state: { success: true } });
+      })
+      .catch((err) => {
+        setError(err?.message || "Could not proceed");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }
+
   return (
     <form onSubmit={submitHandler}>
       <input
         value={user.userName}
         type="text"
         name="userName"
+        placeholder="Username"
         onChange={userHandler}
       />
       <input
         value={user.email}
         type="email"
         name="email"
+        placeholder="Email"
         onChange={userHandler}
       />
       <input
         value={user.password}
         type="password"
         name="password"
+        placeholder="Password"
         onChange={userHandler}
       />
-      <button type="submit">submit</button>
-      {loading && <h1>Loadding...</h1>}
+      <button type="submit" disabled={loading}>
+        {loading ? "Loading..." : "Submit"}
+      </button>
+      {error && <p>{error}</p>}
     </form>
   );
 }
