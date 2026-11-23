@@ -33,3 +33,10 @@ If API credentials are not configured, the app uses the 20 recipes included in `
 - Favorites and the recipes loaded from the API are saved in browser local storage.
 - The Tasty API is requested in batches of 20. Search currently filters recipes already loaded in the browser, so it does not send an API request for every character. Use Load more to extend the recipes available to search.
 - The RapidAPI key is used by the browser app. Do not commit your `.env` file or share the key publicly.
+
+## პროექტის შესახებ
+
+-ეს არის პროექტი რეცეპტებზე აქ გამოვიყენე react-ი
+ასევე გამოვიყენე react-router-dom
+ამ საიტზეშეგიძlიათ დარეგისტრირება და ექაუნთზე შესვლა
+და ნახვა უამრავი რეცეპტების.
