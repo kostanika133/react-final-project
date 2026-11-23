@@ -1,3 +1,5 @@
+# ნიკოლოზი ბერაძე
+
 # Grand Recipes
 
 A React recipe app with authentication, recipe browsing, search, cooking-time filters, sorting, favorites, and recipe details.
