@@ -1,0 +1,19 @@
+.favorites_empty {
+  padding: 70px 20px;
+  text-align: center;
+  color: #77796e;
+}
+
+.favorites_empty button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border: 1px solid #526b4b;
+  border-radius: 4px;
+  background-color: #526b4b;
+  color: white;
+  cursor: pointer;
+}
+
+.favorites_empty button:hover {
+  background-color: #283b2d;
+}
